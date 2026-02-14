@@ -1,10 +1,1 @@
-
-import __ASTRO_IMAGE_IMPORT_QXw4k from "/images/placeholder-2.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fpierce-the-veil.md";
-import __ASTRO_IMAGE_IMPORT_ZBBTv7 from "/images/placeholder-1.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fdeftones.md";
-import __ASTRO_IMAGE_IMPORT_2aDLrx from "/images/placeholder-3.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fslowdive.md";
-import __ASTRO_IMAGE_IMPORT_Z13sFPq from "public/images/placeholder-1.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fdeftones.md";
-import __ASTRO_IMAGE_IMPORT_Z1ryVVx from ".../images/placeholder-1.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fdeftones.md";
-import __ASTRO_IMAGE_IMPORT_2qaflb from "../images/placeholder-1.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fdeftones.md";
-import __ASTRO_IMAGE_IMPORT_aJNfN from "images/placeholder-1.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fdeftones.md";
-export default new Map([["/images/placeholder-2.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fpierce-the-veil.md", __ASTRO_IMAGE_IMPORT_QXw4k], ["/images/placeholder-1.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fdeftones.md", __ASTRO_IMAGE_IMPORT_ZBBTv7], ["/images/placeholder-3.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fslowdive.md", __ASTRO_IMAGE_IMPORT_2aDLrx], ["public/images/placeholder-1.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fdeftones.md", __ASTRO_IMAGE_IMPORT_Z13sFPq], [".../images/placeholder-1.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fdeftones.md", __ASTRO_IMAGE_IMPORT_Z1ryVVx], ["../images/placeholder-1.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fdeftones.md", __ASTRO_IMAGE_IMPORT_2qaflb], ["images/placeholder-1.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fdeftones.md", __ASTRO_IMAGE_IMPORT_aJNfN]]);
-		
+export default new Map();
