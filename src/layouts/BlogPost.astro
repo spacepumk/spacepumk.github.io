@@ -16,42 +16,108 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<BaseHead title={title} description={description} />
 		<style>
 			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* HERO: smaller + centered */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem 1rem;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 900px;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+  box-shadow: var(--box-shadow);
+}
+
+/* POST BODY */
+.prose {
+  width: 720px;
+  max-width: calc(100% - 2em);
+  margin: 0 auto;
+  padding: 1em;
+  color: rgb(var(--gray-dark));
+}
+
+.title {
+  margin-bottom: 1em;
+  padding: 1em 0;
+  text-align: center;
+  line-height: 1;
+}
+
+.title h1 {
+  margin: 0 0 0.5em 0;
+}
+
+.date {
+  margin-bottom: 0.5em;
+  color: rgb(var(--gray));
+}
+
+.last-updated-on {
+  font-style: italic;
+}
+
+/* GALLERY GRID */
+:global(.gallery) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 2rem 0;
+}
+
+:global(.gallery a) {
+  display: block;
+}
+
+:global(.gallery img) {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* hover-zoom without clicking */
+:global(.gallery a) {
+  overflow: hidden;        /* crops the zoom nicely */
+  border-radius: 12px;     /* matches your images */
+}
+
+:global(.gallery img) {
+  transition: transform 220ms ease, filter 220ms ease;
+  will-change: transform;
+}
+
+:global(.gallery a:hover img) {
+  transform: scale(1.07);
+  filter: brightness(1.03) contrast(1.03);
+}
+
+/* keyboard accessibility (tabbing) */
+:global(.gallery a:focus-visible img) {
+  transform: scale(1.07);
+  outline: 2px solid rgba(255, 60, 60, 0.7);
+  outline-offset: 4px;
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :global(.gallery img) {
+    transition: none;
+  }
+}
+
 		</style>
 	</head>
 
