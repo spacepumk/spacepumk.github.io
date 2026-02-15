@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+// @ts-nocheck
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
@@ -16,118 +16,178 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<BaseHead title={title} description={description} />
 		<style>
 			main {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-}
+				width: 100%;
+				max-width: 100%;
+				margin: 0;
+				padding: 0;
+			}
 
-/* HERO: smaller + centered */
-.hero-image {
-  display: flex;
-  justify-content: center;
-  padding: 2rem 1rem 1rem;
-}
+			/* HERO: smaller + centered */
+			.hero-image {
+				display: flex;
+				justify-content: center;
+				padding: 2rem 1rem 1rem;
+			}
 
-.hero-image img {
-  width: 100%;
-  max-width: 900px;
-  max-height: 420px;
-  object-fit: cover;
-  display: block;
-  border-radius: 16px;
-  box-shadow: var(--box-shadow);
-}
+			.hero-image img {
+				width: 100%;
+				max-width: 800px;
+				height: 400px;
+				object-fit: cover;
+				display: block;
+				border: 1px solid #222;
+			}
 
-/* POST BODY */
-.prose {
-  width: 720px;
-  max-width: calc(100% - 2em);
-  margin: 0 auto;
-  padding: 1em;
-  color: rgb(var(--gray-dark));
-}
+			/* POST BODY */
+			.prose {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: 0 auto;
+				padding: 1em;
+				color: rgb(var(--gray-dark));
+			}
 
-.title {
-  margin-bottom: 1em;
-  padding: 1em 0;
-  text-align: center;
-  line-height: 1;
-}
+			.title {
+				margin-bottom: 1em;
+				padding: 1em 0;
+				text-align: center;
+				line-height: 1;
+			}
 
-.title h1 {
-  margin: 0 0 0.5em 0;
-}
+			.title h1 {
+				margin: 0 0 0.5em 0;
+			}
 
-.date {
-  margin-bottom: 0.5em;
-  color: rgb(var(--gray));
-}
+			.date {
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray));
+			}
 
-.last-updated-on {
-  font-style: italic;
-}
+			.last-updated-on {
+				font-style: italic;
+			}
 
-/* GALLERY GRID */
-:global(.gallery) {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin: 2rem 0;
-}
+			/* GALLERY GRID */
+			:global(.gallery) {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 12px;
+				margin: 2rem 0;
+			}
 
-:global(.gallery a) {
-  display: block;
-}
+			:global(.gallery a) {
+				display: block;
+				overflow: hidden;
+				border-radius: 12px;
+			}
 
-:global(.gallery img) {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
+			:global(.gallery img) {
+				width: 100%;
+				height: 240px;
+				object-fit: cover;
+				border-radius: 12px;
+				display: block;
+				transition: transform 220ms ease, filter 220ms ease;
+				will-change: transform;
+			}
 
-/* hover-zoom without clicking */
-:global(.gallery a) {
-  overflow: hidden;        /* crops the zoom nicely */
-  border-radius: 12px;     /* matches your images */
-}
+			:global(.gallery a:hover img) {
+				transform: scale(1.07);
+				filter: brightness(1.03) contrast(1.03);
+			}
 
-:global(.gallery img) {
-  transition: transform 220ms ease, filter 220ms ease;
-  will-change: transform;
-}
+			:global(.gallery a:focus-visible img) {
+				transform: scale(1.07);
+				outline: 2px solid rgba(255, 60, 60, 0.7);
+				outline-offset: 4px;
+			}
 
-:global(.gallery a:hover img) {
-  transform: scale(1.07);
-  filter: brightness(1.03) contrast(1.03);
-}
+			@media (prefers-reduced-motion: reduce) {
+				:global(.gallery img) {
+					transition: none;
+				}
+			}
 
-/* keyboard accessibility (tabbing) */
-:global(.gallery a:focus-visible img) {
-  transform: scale(1.07);
-  outline: 2px solid rgba(255, 60, 60, 0.7);
-  outline-offset: 4px;
-}
+			/* LIGHTBOX */
+			.lightbox {
+				display: none;
+				position: fixed;
+				inset: 0;
+				z-index: 2147483647;
+				background: rgba(0, 0, 0, 0.95);
+				justify-content: center;
+				align-items: center;
+				pointer-events: auto;
+			}
 
-/* respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  :global(.gallery img) {
-    transition: none;
-  }
-}
+			.lightbox.active {
+				display: flex;
+			}
 
+			.lightbox img {
+				max-width: min(1100px, 92vw);
+				max-height: 92vh;
+				object-fit: contain;
+				border: none;
+				border-radius: 0;
+			}
+
+			.lightbox-close {
+				position: fixed;
+				top: 18px;
+				right: 22px;
+				color: #fff;
+				font-size: 40px;
+				font-weight: 700;
+				cursor: pointer;
+				background: none;
+				border: none;
+				padding: 0;
+				line-height: 1;
+				z-index: 2147483647;
+			}
+
+			.lightbox-close:hover {
+				color: #ff3c3c;
+			}
+
+			@media (max-width: 900px) {
+				:global(.gallery) {
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+
+			@media (max-width: 600px) {
+				:global(.gallery) {
+					grid-template-columns: 1fr;
+				}
+				.hero-image img {
+					height: 300px;
+				}
+			}
 		</style>
 	</head>
 
 	<body>
 		<Header />
+
+		<!-- LIGHTBOX MARKUP (TOP-LEVEL, ABOVE EVERYTHING) -->
+		<div id="lightbox" class="lightbox" aria-hidden="true">
+			<button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+			<img id="lightbox-img" src="" alt="" />
+		</div>
+
 		<main>
 			<article>
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					{heroImage && (
+						<img
+							src={typeof heroImage === 'string' ? heroImage : heroImage.src}
+							alt={title}
+						/>
+					)}
 				</div>
+
 				<div class="prose">
 					<div class="title">
 						<div class="date">
@@ -143,10 +203,50 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						<h1>{title}</h1>
 						<hr />
 					</div>
+
 					<slot />
 				</div>
 			</article>
 		</main>
+
 		<Footer />
+
+		<script is:inline>
+			const lightbox = document.getElementById('lightbox');
+			const lightboxImg = document.getElementById('lightbox-img');
+			const closeBtn = lightbox.querySelector('.lightbox-close');
+
+			function openLightbox(src) {
+				lightboxImg.src = src;
+				lightbox.classList.add('active');
+				lightbox.setAttribute('aria-hidden', 'false');
+				document.documentElement.style.overflow = 'hidden';
+			}
+
+			function closeLightbox() {
+				lightbox.classList.remove('active');
+				lightbox.setAttribute('aria-hidden', 'true');
+				lightboxImg.src = '';
+				document.documentElement.style.overflow = '';
+			}
+
+			document.addEventListener('click', (e) => {
+				const link = e.target.closest('.gallery a');
+				if (link) {
+					e.preventDefault();
+					openLightbox(link.getAttribute('href'));
+				}
+			});
+
+			closeBtn.addEventListener('click', closeLightbox);
+
+			lightbox.addEventListener('click', (e) => {
+				if (e.target === lightbox) closeLightbox();
+			});
+
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape') closeLightbox();
+			});
+		</script>
 	</body>
 </html>
