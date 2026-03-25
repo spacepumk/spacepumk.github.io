@@ -1,34 +1,36 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
 import Layout from '../layouts/BlogPost.astro';
+
+const AboutHeroImage = "/images/me.jpeg";
+const showHeroIage=true;
 ---
 
 <Layout
 	title="who am i?"
 	description="about me"
-	pubDate={new Date('February 14 2026')}
+	pubDate={new Date('2026-02-14')}
+	showHeroImage={true}
 	heroImage={AboutHeroImage}
-
+>
 	<p>
-	Hey, I'm Di. I'm a 25 year old human being currently based in Paris. I shoot concerts in wherever and post them here.
-	
-	</p>
-	
+		<div class="post-text">
 
-	<p>
-I shoot concerts because I'm there anyway. 
-Always have been. At some point I figured 
-I should have something to show for it.
+		Hey, I'm Di. I'm a 25-year-old human being currently based in Paris. I shoot shows wherever I go because I'm there anyway, and I post them here.
+	</div>
 	</p>
 
-
 	<p>
-	Email: <a href="mailto:dilayduzler@gmail.com">dilayduzler@gmail.com</a><br/>
-	For press passes and collabs, get in touch.
+		<div class="post-text">
+
+		Email: <a href="mailto:dilayduzler@gmail.com">dilayduzler@gmail.com</a><br />
+		For press passes and collabs, get in touch.
+	</div>
 	</p>
+
+	<div class="post-text">
 
 	<blockquote class="lyric">
-  <p>I don't wanna waste my time become another casualty of society.</p>
-</blockquote>
-
+		<p>I don't wanna waste my time becoming another casualty of society.</p>
+	</blockquote>
+	</div>
 </Layout>
