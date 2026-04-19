@@ -2,7 +2,7 @@
 title: "Waterparks at La Machine du Moulin Rouge"
 description: "My first time ever shooting a live show — Waterparks in Paris on 14 March 2026."
 pubDate: 2026-03-14
-heroImage: "/images/waterparks26/waterparks-1.jpg"
+heroImage: "/images/waterparks26/waterparks-9.jpg"
 ---
 
 ## Gallery
@@ -37,9 +37,7 @@ heroImage: "/images/waterparks26/waterparks-1.jpg"
   <a href="/images/waterparks26/waterparks-10.jpg" target="_blank" rel="noopener">
     <img src="/images/waterparks26/waterparks-10.jpg" alt="Waterparks live in Paris — photo 10" loading="lazy" />
   </a>
-  <a href="/images/waterparks26/waterparks-11.jpg" target="_blank" rel="noopener">
-    <img src="/images/waterparks26/waterparks-11.jpg" alt="Waterparks live in Paris — photo 11" loading="lazy" />
-  </a>
+
   <a href="/images/waterparks26/waterparks-12.jpg" target="_blank" rel="noopener">
     <img src="/images/waterparks26/waterparks-12.jpg" alt="Waterparks live in Paris — photo 12" loading="lazy" />
   </a>

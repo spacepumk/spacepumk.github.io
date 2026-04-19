@@ -5,9 +5,9 @@ import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 
 const featuredImages = [
-  '/images/placeholder-1.jpg',
-  '/images/placeholder-2.jpg',
-  '/images/placeholder-3.jpg'
+  '/images/5sos-amsterdam-2026/michael-5.jpg',
+  '/images/5sos-paris-2026/IMG_0838-Edit.png',
+  '/images/5sos-amsterdam-2026/tt-5.jpg',
 ];
 ---
 
@@ -40,19 +40,39 @@ const featuredImages = [
     <p>Looking for a photographer for your show? Hit me up!</p>
   </section>
 
-  <section class="note">
-    <p>NOTE: Sorry for the placeholders, blog is still WIP lol.</p>
 
-    </section>
-
+<section class="gallery-tape-wrap">
+  <a href="/gallery" class="gallery-tape" aria-label="Open all photos gallery">
+    <div class="gallery-tape-track">
+      <span>ALL PHOTOS</span>
+      <span>✦</span>
+      <span>ENTER GALLERY</span>
+      <span>✦</span>
+      <span>ALL PHOTOS</span>
+      <span>✦</span>
+      <span>ENTER GALLERY</span>
+      <span>✦</span>
+      <span>ALL PHOTOS</span>
+      <span>✦</span>
+      <span>ENTER GALLERY</span>
+      <span>✦</span>
+      <span>ALL PHOTOS</span>
+      <span>✦</span>
+      <span>ENTER GALLERY</span>
+    </div>
+  </a>
+</section>
 
 <!-- CTA -->
 <section class="cta">
   <a href="/blog" class="big-link">→ See all shows</a>
   <div class="show-links">
-    <a href="/blog/waterparks-paris26">Waterparks</a>
+    <a href="/blog/waterparks-paris26">Waterparks Paris 2026</a>
+    <a href="/blog/5sos-paris-26">5 Seconds of Summer Paris 2026</a>
+    <a href="/blog/5sos-amsterdam-26">5 Seconds of Summer Amsterdam 2026</a>
   </div>
 </section>
+
 
 </main>
 
@@ -60,8 +80,16 @@ const featuredImages = [
 </body>
 </html>
 
+
+
+
+
+
+
+
+
 <style>
-  /* Image banner - full width */
+  /* Image banner */
   .image-banner {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -80,14 +108,13 @@ const featuredImages = [
     padding: 0;
   }
 
-  /* Main container */
+  /* Main */
   main {
     max-width: 1000px;
     margin: 0 auto;
     padding-top: 3em;
   }
 
-  /* Main sections */
   section {
     padding: 0 2em;
   }
@@ -118,6 +145,16 @@ const featuredImages = [
     margin-bottom: 1.5em;
   }
 
+  .note {
+    text-align: center;
+    color: #999;
+    margin-bottom: 2.5em;
+  }
+
+  .note p {
+    margin: 0;
+  }
+
   .recent-bands {
     background: #111;
     border-left: 3px solid #ff3c3c;
@@ -129,12 +166,88 @@ const featuredImages = [
     color: #ff3c3c;
   }
 
+  /* Gallery promo */
+.gallery-tape-wrap {
+  padding: 0 2em;
+  margin: 2.5em 0 3em;
+}
+
+.gallery-tape {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 60, 60, 0.35);
+  border-bottom: 1px solid rgba(255, 60, 60, 0.35);
+  background:
+    linear-gradient(90deg, rgba(255, 60, 60, 0.12), rgba(255, 60, 60, 0.04) 30%, rgba(120, 0, 255, 0.08) 70%, rgba(255, 60, 60, 0.12)),
+    #0a0a0a;
+  text-decoration: none;
+  white-space: nowrap;
+  transform: rotate(-1.2deg);
+  box-shadow: 0 0 24px rgba(255, 60, 60, 0.08);
+}
+
+.gallery-tape:hover {
+  text-decoration: none;
+  border-top-color: #ff3c3c;
+  border-bottom-color: #ff3c3c;
+  box-shadow: 0 0 30px rgba(255, 60, 60, 0.16);
+}
+
+.gallery-tape-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.95rem 0;
+  min-width: max-content;
+  animation: galleryTapeScroll 18s linear infinite;
+  color: #ff4a4a;
+  font-size: clamp(1rem, 2.4vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.gallery-tape:hover .gallery-tape-track {
+  animation-play-state: paused;
+}
+
+.gallery-tape-track span {
+  display: inline-block;
+}
+
+@keyframes galleryTapeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-tape-wrap {
+    padding: 0 1em;
+  }
+
+  .gallery-tape {
+    transform: rotate(-1deg);
+  }
+
+  .gallery-tape-track {
+    gap: 1rem;
+    padding: 0.8rem 0;
+    font-size: 1rem;
+  }
+}
+
+  /* CTA */
   .cta {
     text-align: center;
     margin: 4em 0;
-    gap: 2em;
     justify-content: center;
     align-items: center;
+    gap: 2em;
   }
 
   .big-link {
@@ -145,6 +258,23 @@ const featuredImages = [
   }
 
   .big-link:hover {
+    text-decoration: underline;
+  }
+
+  .show-links {
+    margin-top: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+  }
+
+  .show-links a {
+    color: #ccc;
+    text-decoration: none;
+  }
+
+  .show-links a:hover {
+    color: #ff3c3c;
     text-decoration: underline;
   }
 
@@ -177,6 +307,42 @@ const featuredImages = [
     text-decoration: underline;
   }
 
+  @keyframes promoDrift {
+    0% {
+      transform: rotate(-8deg) translateX(0) scale(1.05);
+    }
+    50% {
+      transform: rotate(-8deg) translateX(-20px) scale(1.07);
+    }
+    100% {
+      transform: rotate(-8deg) translateX(0) scale(1.05);
+    }
+  }
+
+  @keyframes glowFloat1 {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(12px) translateX(-18px);
+    }
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+  }
+
+  @keyframes glowFloat2 {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-14px) translateX(20px);
+    }
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+  }
+
   @media (max-width: 768px) {
     .image-banner {
       grid-template-columns: 1fr;
@@ -189,6 +355,20 @@ const featuredImages = [
 
     .intro h1 {
       font-size: 2.5em;
+    }
+
+    .gallery-promo {
+      padding: 0 1em;
+    }
+
+    .gallery-promo-content {
+      min-height: 220px;
+      padding: 1.5em;
+    }
+
+    .gallery-promo-grid {
+      grid-template-columns: repeat(2, 1fr);
+      font-size: 2.8rem;
     }
 
     .cta {
