@@ -25,11 +25,11 @@ heroImage: "/images/nbhd-antwerp-2026/jesse-3.png"
 <div class="post-text">
 
 ## Show Details
-- **Artist:** 5 Seconds of Summer
-- **Tour:** Everyone’s A Star World Tour
-- **Venue:** Ziggo Dome
-- **Location:** Amsterdam, Netherlands
-- **Date:** 10 April 2026
+- **Artist:** The Neighbourhood
+- **Tour:** THE WOURLD TOUR
+- **Venue:** Afas Dome
+- **Location:** Antwerp, Belgium
+- **Date:** 13 May 2026
 
 </div>
 
