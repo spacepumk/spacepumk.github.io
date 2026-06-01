@@ -1,7 +1,7 @@
 ---
 title: "The Neighbourhood at Afas Dome"
 description: "The Neighbourhood / Antwerp on 13 May 2026 / THE WOURLD TOUR"
-pubDate: 2026-05-15"
+pubDate: 2026-05-13"
 heroImage: "/images/nbhd-antwerp-2026/jesse-3.png"
 ---
 
